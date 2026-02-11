@@ -472,12 +472,12 @@
 
         <div class="section">
             <div class="section-title">📍 Место встречи</div>
-            <div class="section-text">Город Кентау</div>
+            <div class="section-text">Туркестан</div>
         </div>
 
         <div class="message">
             <div class="message-hearts">💕 💕 💕</div>
-            Мне бы очень хотелось провести с тобой незабываемый вечер!
+            Мне бы очень хотелось провести с тобой незабываемое время!
             <div class="message-hearts">💕 💕 💕</div>
         </div>
 
@@ -640,4 +640,534 @@
         }
     </script>
 </body>
+</html>
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #666;
+            font-style: italic;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .divider {
+            height: 3px;
+            background: linear-gradient(to right, transparent, #ff6b9d, transparent);
+            margin: 20px 0;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 107, 157, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #ff6b9d;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+
+        .section-title {
+            font-size: 0.75rem;
+            color: #ff6b9d;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .section-text {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .message {
+            text-align: center;
+            margin: 25px 0;
+            font-size: 1rem;
+            color: #764ba2;
+            font-style: italic;
+            animation: fadeInScale 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .message-hearts {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            letter-spacing: 5px;
+            animation: heartbeat 1.4s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            position: relative;
+            min-height: 50px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #ff6b9d, #ff8fb3);
+            color: white;
+            flex: 1;
+            animation: scaleIn 0.6s ease-out 0.5s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.5);
+        }
+
+        #yesBtn:active {
+            transform: scale(0.95);
+        }
+
+        #noBtn {
+            background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+            color: #333;
+            z-index: 101;
+            min-width: 110px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid #ff6b9d;
+            transition: all 0.3s ease;
+            flex: 1;
+            animation: scaleIn 0.6s ease-out 0.5s both;
+        }
+
+        #noBtn:hover {
+            background: linear-gradient(135deg, #d0d0d0, #e0e0e0);
+        }
+
+        #noBtn.running {
+            position: fixed !important;
+            z-index: 10000;
+            flex: none;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        /* Конфетти / Фейерверк */
+        .fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50000;
+            overflow: hidden;
+        }
+
+        .firework {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            font-size: 2rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            animation: explode 2.5s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0);
+            }
+        }
+
+        /* Прыгающий человечек (появляется при согласии) */
+            #joy {
+                position: fixed;
+                right: 18px;
+                bottom: 18px;
+                width: 140px;
+                height: 140px;
+                display: none;
+                z-index: 999999;
+                pointer-events: none;
+                transform-origin: center bottom;
+            }
+
+        .joy-halo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,182,193,0.85), rgba(255,182,193,0));
+            filter: blur(16px);
+            opacity: 0.9;
+            pointer-events: none;
+            mix-blend-mode: normal;
+        }
+
+        .joy-emoji {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -10%);
+            font-size: 5.2rem;
+            text-shadow: 0 10px 30px rgba(220, 50, 110, 0.55);
+            will-change: transform, opacity;
+        }
+
+        .show-joy { display: block !important; }
+        .show-joy .joy-emoji { animation: joyJump 0.6s ease-in-out 0s 6; animation-fill-mode: both; }
+        .show-joy .joy-halo { animation: haloPulse 0.6s ease-in-out 0s 6; opacity: 1; animation-fill-mode: both; }
+        .show-joy .joy-emoji { animation-fill-mode: both; }
+
+        @keyframes joyJump {
+            0% { transform: translate(-50%, -10%) translateY(0) scale(0.98); }
+            40% { transform: translate(-50%, -10%) translateY(-72px) scale(1.18); }
+            70% { transform: translate(-50%, -10%) translateY(-36px) scale(1.08); }
+            100% { transform: translate(-50%, -10%) translateY(0) scale(1); }
+        }
+
+        @keyframes haloPulse {
+            0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.55; }
+            50% { transform: translate(-50%, -50%) scale(1.12); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(0.98); opacity: 0.55; }
+        }
+
+        /* Мобильная оптимизация */
+        @media (max-width: 600px) {
+            body {
+                padding: 5px;
+            }
+
+            /* Центрируем человечка на мобильных для лучшей видимости */
+            #joy {
+                left: 50% !important;
+                right: auto !important;
+                transform: translateX(-50%);
+            }
+
+            .joy-emoji { font-size: 4.6rem; }
+            .joy-halo { width: 160px; height: 160px; }
+
+            .card {
+                padding: 25px 15px;
+                border-radius: 20px;
+                border: 2px solid #ff6b9d;
+            }
+
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .stars {
+                font-size: 1.2rem;
+                letter-spacing: 5px;
+            }
+
+            .section-text {
+                font-size: 0.95rem;
+            }
+
+            .message {
+                font-size: 0.9rem;
+            }
+
+            button {
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
+
+            .card-decoration {
+                font-size: 1.5rem;
+            }
+
+            .bg-decoration {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Фоновые украшения -->
+    <div class="bg-decoration bg-dec1">💐</div>
+    <div class="bg-decoration bg-dec2">🌹</div>
+    <div class="bg-decoration bg-dec3">💕</div>
+    <div class="bg-decoration bg-dec4">✨</div>
+
+    <!-- Контейнер для фейерверка -->
+    <div class="fireworks-container" id="fireworks"></div>
+
+    <!-- Прыгающий человечек (скрыт) -->
+    <div id="joy" aria-hidden="true">
+        <div class="joy-halo" aria-hidden="true"></div>
+        <div class="joy-emoji">🕺</div>
+    </div>
+
+    <div class="card">
+        <!-- Украшения карточки -->
+        <div class="card-decoration dec-top-left">💐</div>
+        <div class="card-decoration dec-top-right">🌹</div>
+        <div class="card-decoration dec-bottom-left">💝</div>
+        <div class="card-decoration dec-bottom-right">✨</div>
+
+        <div class="header">
+            <div class="stars">✨ ✨ ✨</div>
+            <h1>♥ ПРИГЛАШЕНИЕ ♥</h1>
+            <p>на особенное свидание</p>
+            <div class="stars">✨ ✨ ✨</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <div class="section-title">📅 Дата</div>
+            <div class="section-text">14 февраля</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">📍 Место встречи</div>
+            <div class="section-text">Туркестан</div>
+        </div>
+
+        <div class="message">
+            <div class="message-hearts">💕 💕 💕</div>
+            Мне бы очень хотелось провести с тобой незабываемое время!
+            <div class="message-hearts">💕 💕 💕</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="buttons">
+            <button id="yesBtn" onclick="clickYes()">
+                ❤️ Да, с удовольствием!
+            </button>
+            <button id="noBtn" onclick="clickNo()">🤔 Подумаю</button>
+        </div>
+
+        <div class="footer">
+            <p>С нетерпением жду твоего ответа... 💕</p>
+        </div>
+    </div>
+
+    <script>
+        // Настройки: укажите ваш email для получения уведомления (оставьте пустым, чтобы отключить)
+        const OWNER_EMAIL = '';
+
+        // Google Sheet Web App URL (получите после настройки Apps Script)
+        const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz9F6ui4DZoWaD4JXG_s8b0_92ViyJEKeiumVIKnQafF9TJp4tukiLSU9bE_xvyBigM/exec';  // Пример: 'https://script.google.com/macros/d/..../usercontent'
+
+        // Логирование просмотра/ответа в localStorage (работает на устройстве получателя)
+        function markSeen() {
+            try {
+                localStorage.setItem('invitation_last_opened', new Date().toISOString());
+            } catch (e) {}
+        }
+
+        function saveResponse(resp) {
+            try {
+                localStorage.setItem('invitation_response', resp);
+                localStorage.setItem('invitation_response_time', new Date().toISOString());
+            } catch (e) {}
+        }
+
+        // Помощник: откроет почтовый клиент с предзаполненным сообщением (если OWNER_EMAIL указан)
+        function notifyOwner(resp) {
+            if (!OWNER_EMAIL) return;
+            const subject = encodeURIComponent('Ответ на приглашение');
+            const body = encodeURIComponent(`Пользователь ответил: ${resp}\nСсылка на приглашение: ${location.href}`);
+            window.location.href = `mailto:${OWNER_EMAIL}?subject=${subject}&body=${body}`;
+        }
+
+        // Отправить ответ в Google Sheets через WebHook
+        function sendToWebhook(resp) {
+            if (!WEBHOOK_URL) return;
+            try {
+                fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        response: resp,
+                        timestamp: new Date().toISOString(),
+                        url: location.href
+                    })
+                }).catch(e => console.log('Webhook sent (or blocked by CORS, which is OK)'));
+            } catch (e) {
+                console.log('Could not send to webhook');
+            }
+        }
+
+        // Отметим, что страница открыта
+        markSeen();
+
+        const texts = [
+            '🤔 Подумаю',
+            '😅 Не уверена',
+            '⏰ Позже решу',
+            '😬 Может быть',
+            '🤷 Еще не знаю',
+            '😊 Скорее да!',
+            '💕 Согласна!'
+        ];
+
+        let count = 0;
+
+        function getRandomPos() {
+            const margin = 60;
+            return {
+                x: Math.max(margin, Math.random() * (window.innerWidth - margin - 100)),
+                y: Math.max(margin, Math.random() * (window.innerHeight - margin - 50))
+            };
+        }
+
+        function clickNo() {
+            const noBtn = document.getElementById('noBtn');
+            
+            // при первом клике кнопка перейдет в "убегающий" режим
+            if (!noBtn.classList.contains('running')) {
+                noBtn.classList.add('running');
+            }
+            
+            if (count < texts.length - 1) {
+                count++;
+                noBtn.innerText = texts[count];
+                
+                const pos = getRandomPos();
+                noBtn.style.left = pos.x + 'px';
+                noBtn.style.top = pos.y + 'px';
+                noBtn.style.transform = 'none';
+            } else {
+                noBtn.style.background = 'linear-gradient(135deg, #4CAF50, #66BB6A)';
+                noBtn.style.color = 'white';
+                noBtn.innerText = '✅ Согласна!';
+                noBtn.onclick = clickYes;
+                try { saveResponse('yes'); } catch (e) {}
+                try { sendToWebhook('yes'); } catch (e) {}
+                setTimeout(clickYes, 600);
+            }
+        }
+
+        function createFireworks() {
+            const container = document.getElementById('fireworks');
+            const hearts = ['💕', '❤️', '💖', '💗', '💝', '💞', '💓', '🌹', '💐', '✨', '🎀'];
+            
+            for (let i = 0; i < 60; i++) {
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                firework.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+                
+                const angle = (Math.random() * Math.PI * 2);
+                const distance = 180 + Math.random() * 380;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+                
+                firework.style.left = (window.innerWidth / 2) + 'px';
+                firework.style.top = (window.innerHeight / 2) + 'px';
+                firework.style.setProperty('--tx', tx + 'px');
+                firework.style.setProperty('--ty', ty + 'px');
+                
+                const delay = Math.random() * 0.3;
+                firework.style.animationDelay = delay + 's';
+                
+                container.appendChild(firework);
+                
+                setTimeout(() => firework.remove(), 3200 + delay * 1000);
+            }
+        }
+
+        function clickYes() {
+            // Показываем человечка-прыгуна: короче (0.6s * 6 = 3600ms)
+            try { saveResponse('yes'); } catch (e) {}
+            try { sendToWebhook('yes'); } catch (e) {}
+            const joy = document.getElementById('joy');
+            joy.classList.add('show-joy');
+            setTimeout(() => joy.classList.remove('show-joy'), 3800);
+
+            // Запускаем фейерверк после окончания прыжков человечка
+            setTimeout(() => createFireworks(), 4000);
+
+            setTimeout(() => {
+                document.getElementById('yesBtn').innerText = '✅ Жду встречи!';
+                document.getElementById('yesBtn').style.background = 'linear-gradient(135deg, #4CAF50, #66BB6A)';
+                document.getElementById('noBtn').style.display = 'none';
+            }, 800);
+        }
+    </script>
+</body>
+>>>>>>> 577b135 (Add Приглашение.html)
 </html>
